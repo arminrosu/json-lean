@@ -72,9 +72,31 @@ module.exports = function() {
 	 * @return {Integer}
 	 */
 	var minifyValue = function(value) {
-		// Boolean to integer
+		// Boolean to Integer
 		if (typeof value === 'boolean') {
 			value = value | 0;
+
+		// NumberString
+		} else if (
+			typeof value === 'string' &&
+			isNumber(value)
+		) {
+			var number = parseFloat(value);
+
+			// Might already be in exponential notation and shorter
+			// @NOTE We might misidentify exp. notation.
+			if (value.length > number.toString().length - 2) {
+				value = number;
+			}
+		}
+
+		// Number
+		if (typeof value === 'number') {
+			var exp = value.toExponential();
+
+			if (value.toString().length > exp.length + 2) {
+				value = exp;
+			}
 		}
 
 		return value;
@@ -100,6 +122,16 @@ module.exports = function() {
 		// Number
 		// String
 		return true;
+	};
+
+	/**
+	 * Check if a string contains a number.
+	 * @see {@link http://stackoverflow.com/a/35759874/584441|Stackoverflow source}
+	 * @param  {string} string
+	 * @return {Boolean}
+	 */
+	var isNumber = function(string) {
+		return !isNaN(string) && !isNaN(parseFloat(string));
 	};
 
 	return {

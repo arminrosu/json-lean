@@ -14,7 +14,10 @@ Input:
 	"boolean": false,
 	"integer": 1042,
 	"float": 10.5,
-	"numberString": "123e10",
+	"largeNumber": 15000000000,
+	"exponent": 162e3,
+	"exponentString": "162e+5",
+	"numberString": "123e+10",
 	"object": {
 		"name": "Oscar"
 	},
@@ -48,14 +51,19 @@ Output:
             3
         ],
 		// Boolean converted to integer
-        0,
-        1042,
-        10.5,
-        "123e10",
-        [
-            "Oscar"
-        ],
-        "I love deadlines. I like the whooshing sound they make as they fly by."
+		0,
+		1042,
+		10.5,
+		// largeNumber is shorter in Exponential Notation
+		"1.5e+10",
+		// JSON.parse() automatically converts this to integer :(
+		162000,
+		"162e5",
+		"123e10",
+		[
+			"Oscar"
+		],
+		"I love deadlines. I like the whooshing sound they make as they fly by."
     ]
 ]
 ```
