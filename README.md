@@ -27,45 +27,71 @@ Input:
 
 Output:
 
-```json
+```js
 [
-	// Keys
-    [
-        "array",
-        "boolean",
-        "integer",
-        "float",
-        "numberString",
-        {
-            "object": [
-                "name"
-            ]
-        },
-        "string"
-    ],
-	// Values
-    [
-        [
-            1,
-            2,
-            3
-        ],
+	// Keys, sorted
+	[
+		"array",
+		"boolean",
+		"exponent",
+		"exponentString",
+		"float",
+		"integer",
+		"largeNumber",
+		"numberString",
+		{
+			"object": [
+				"name"
+			]
+		},
+		"string"
+	],
+	// Values, in corresponding order
+	[
+		[
+			1,
+			2,
+			3
+		],
 		// Boolean converted to integer
 		0,
-		1042,
+		// JSON.parse() automatically converts 162e3 to integer :(
+		162000,
+		"162e+5",
 		10.5,
+		1042,
 		// largeNumber is shorter in Exponential Notation
 		"1.5e+10",
-		// JSON.parse() automatically converts this to integer :(
-		162000,
-		"162e5",
-		"123e10",
+		"123e+10",
 		[
 			"Oscar"
 		],
 		"I love deadlines. I like the whooshing sound they make as they fly by."
-    ]
+	]
 ]
 ```
 
-Also check out _sampler.js_ for more examples.
+And back:
+
+```json
+{
+	"array": [
+		1,
+		2,
+		3
+	],
+	"boolean": 0,
+	"exponent": 162000,
+	"exponentString": "162e+5",
+	"float": 10.5,
+	"integer": 1042,
+	"largeNumber": "1.5e+10",
+	"numberString": "123e+10",
+	"object": {
+		"name": "Oscar"
+	},
+	"string": "I love deadlines. I like the whooshing sound they make as they fly by."
+}
+```
+
+Also check out [sampler.js](./sampler.js) for more examples.
