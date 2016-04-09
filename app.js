@@ -9,11 +9,12 @@ module.exports = function() {
 	var encode = function(obj, minify) {
 		var keys   = [];
 		var values = [];
-		var key;
 		var value;
 		var minifyOn = minify || true;
 
-		for (key in obj) {
+		var objKeys = Object.keys(obj).sort();
+
+		objKeys.forEach(function(key) {
 			value = obj[key];
 
 			if (isEdge(value)) {
@@ -34,7 +35,7 @@ module.exports = function() {
 				keys.push(k);
 				values.push(encoded[1]);
 			}
-		}
+		});
 
 		return [keys, values];
 	};
