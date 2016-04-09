@@ -67,3 +67,5 @@ Output:
     ]
 ]
 ```
+
+Also check out _sampler.js_ for more examples.

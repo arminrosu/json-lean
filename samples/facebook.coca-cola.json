@@ -1,0 +1,74 @@
+{
+    "about": "The Coca-Cola Facebook Page is a collection of your stories showing how people from around the world have helped make Coke into what it is today.",
+    "birthday": "05/08/1886",
+    "asset_score": 0,
+    "best_page": {
+        "name": "Coca-Cola",
+        "id": "357274534427476"
+    },
+    "can_checkin": true,
+    "can_post": true,
+    "category": "Food/Beverages",
+    "checkins": 13111,
+    "context": {
+        "friends_who_like": {
+            "data": [],
+            "paging": {
+                "cursors": {
+                    "before": "MTAwMDAwMDgwODU0NjA1",
+                    "after": "MTAwMDAwMDgwODU0NjA1"
+                }
+            },
+            "summary": {
+                "social_sentence": "43 of your friends like this.",
+                "total_count": 43
+            }
+        },
+        "id": "b3Blbl9ncmFwaF9jb250ZAXh0OjQwNzk2MzA4MzA1"
+    },
+    "cover": {
+        "cover_id": "10154746975518306",
+        "offset_x": 0,
+        "offset_y": 0,
+        "source": "https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xtf1/v/t1.0-9/s720x720/12650877_10154746975518306_2235434755533204861_n.jpg?oh=296cd382f0b3790d6f66f87817213439&oe=577A6717&__gda__=1471818991_9abbbf18f074ae60d387e40f1eb55fbd",
+        "id": "10154746975518306"
+    },
+    "description": "Created in 1886 in Atlanta, Georgia, by Dr. John S. Pemberton, Coca-Cola was first offered as a fountain beverage at Jacob's Pharmacy by mixing Coca-Cola syrup with carbonated water.\n\nCoca-Cola was patented in 1887, registered as a trademark in 1893 and by 1895 it was being sold in every state and territory in the United States. In 1899, The Coca-Cola Company began franchised bottling operations in the United States.\n\nCoca-Cola might owe its origins to the United States, but its popularity has made it truly universal. Today, you can find Coca-Cola in virtually every part of the world.\n\nCoca-Cola Page House Rules: http://CokeURL.com/q28a",
+    "description_html": "Created in 1886 in Atlanta, Georgia, by Dr. John S. Pemberton, Coca-Cola was first offered as a fountain beverage at Jacob's Pharmacy by mixing Coca-Cola syrup with carbonated water.\n\nCoca-Cola was patented in 1887, registered as a trademark in 1893 and by 1895 it was being sold in every state and territory in the United States. In 1899, The Coca-Cola Company began franchised bottling operations in the United States.\n\nCoca-Cola might owe its origins to the United States, but its popularity has made it truly universal. Today, you can find Coca-Cola in virtually every part of the world.\n\nCoca-Cola Page House Rules: http://CokeURL.com/q28a",
+    "display_subtext": "13,111 people checked in here",
+    "engagement": {
+        "count": 97156541,
+        "social_sentence": "97,156,541 people like this."
+    },
+    "founded": "1886",
+    "global_brand_page_name": "Coca-Cola",
+    "global_brand_root_id": "1542920115951985",
+    "has_added_app": false,
+    "id": "40796308305",
+    "is_always_open": false,
+    "is_community_page": false,
+    "is_permanently_closed": false,
+    "is_published": true,
+    "is_unclaimed": false,
+    "is_verified": true,
+    "leadgen_tos_accepted": false,
+    "likes": 97156541,
+    "link": "https://www.facebook.com/coca-cola/",
+    "name": "Coca-Cola",
+    "name_with_location_descriptor": "Coca-Cola",
+    "parking": {
+        "lot": 0,
+        "street": 0,
+        "valet": 0
+    },
+    "start_info": {
+        "type": "Founded",
+        "date": {
+            "year": 1886,
+            "month": 5,
+            "day": 8
+        }
+    },
+    "username": "coca-cola",
+    "website": "http://www.coca-cola.com"
+}
