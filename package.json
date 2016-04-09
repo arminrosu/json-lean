@@ -1,0 +1,17 @@
+{
+  "name": "json-key-encoder",
+  "version": "0.1.0",
+  "description": "Extract/Merge key and value trees from a JSON.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "json",
+    "keys",
+    "compress",
+    "decompress"
+  ],
+  "author": "Armin Roșu <hello@armin.ro> (http://armin.ro)",
+  "license": "MIT"
+}

@@ -1,0 +1,21 @@
+{
+	"preset": "default",
+	"root": true,
+	"indent": {
+		"value": "\t"
+	},
+	"plugins": [
+		"esformatter-align",
+		"esformatter-braces",
+		"esformatter-dot-notation",
+		"esformatter-literal-notation",
+		"esformatter-parseint",
+		"esformatter-quotes",
+		"esformatter-semicolons",
+		"esformatter-spaced-lined-comment"
+	],
+	// esformatter-quotes configuration
+	"quotes": {
+		"type": "single"
+	}
+}

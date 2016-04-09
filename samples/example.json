@@ -1,0 +1,11 @@
+{
+	"array": [1, 2, 3],
+	"boolean": false,
+	"integer": 1042,
+	"float": 10.5,
+	"numberString": "123e10",
+	"object": {
+		"name": "Oscar"
+	},
+	"string": "I love deadlines. I like the whooshing sound they make as they fly by."
+}

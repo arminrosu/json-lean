@@ -1,0 +1,56 @@
+{
+    // Rules are: 0 (off), 1 (warning), or 2 (error)
+    // http://eslint.org/docs/configuring/
+    "env": {
+        "node": true,
+        "es6": true
+    },
+
+    "globals": {
+    },
+
+    "rules": {
+        "comma-dangle": [1, "never"],
+        "guard-for-in": 0,
+        "no-caller": 2,
+        "no-cond-assign": 2,
+        "no-constant-condition": 2,
+        "no-debugger": 2,
+        "no-dupe-keys": 2,
+        "no-else-return": 1,
+        "no-empty": 2,
+        "no-empty-character-class": 2,
+        "no-ex-assign": 2,
+        "no-extra-boolean-cast": 1,
+        "no-extra-semi": 1,
+        "no-func-assign": 2,
+        "no-invalid-regexp": 2,
+        "no-iterator": 2,
+        "no-loop-func": 2,
+        "no-new-wrappers": 1,
+        "no-redeclare": 2,
+        "no-sequences": 2,
+        "no-sparse-arrays": 2,
+        "no-undef": 2,
+        "no-unreachable": 2,
+        "no-unused-expressions": 1,
+        "no-unused-vars": 1,
+        "radix": 1,
+        "strict": 0,
+
+        // Style / Formatting
+        "camelcase": 1,
+        "eol-last": 1,
+        "new-cap": 0,
+        "quotes": [2, "single"],
+        "dot-notation": 2,
+
+        // Disable style linting for everything else as it is handled by esformatter
+        "comma-spacing": 0,
+        "key-spacing": 0,
+        "no-space-before-semi": 0,
+        "no-spaced-func": 0,
+        "no-trailing-spaces": 0,
+        "space-return-throw-case": 0
+    }
+}
