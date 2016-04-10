@@ -1,11 +1,17 @@
 {
-	"array": [1, 2, 3],
+	"array": [
+		1,
+		2,
+		3
+	],
 	"boolean": false,
 	"integer": 1042,
 	"float": 10.5,
 	"largeNumber": 15000000000,
 	"exponent": 162e3,
 	"exponentString": "162e+5",
+	"decimalFraction": 0.00000000001,
+	"exponentFraction": 1e-7,
 	"numberString": "123e+10",
 	"object": {
 		"name": "Oscar"

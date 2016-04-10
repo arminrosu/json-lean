@@ -1,4 +1,4 @@
-module.exports = function() {
+module.exports = (function() {
 
 	/**
 	 * Extract key and value trees.
@@ -77,7 +77,7 @@ module.exports = function() {
 		if (typeof value === 'boolean') {
 			value = value | 0;
 
-		// NumberString
+		// NumberString to Number
 		} else if (
 			typeof value === 'string' &&
 			isNumber(value)
@@ -139,4 +139,4 @@ module.exports = function() {
 		encode: encode,
 		decode: decode
 	};
-}();
+})();

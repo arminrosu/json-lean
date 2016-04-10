@@ -10,13 +10,19 @@ Input:
 
 ```json
 {
-	"array": [1, 2, 3],
+	"array": [
+		1,
+		2,
+		3
+	],
 	"boolean": false,
 	"integer": 1042,
 	"float": 10.5,
 	"largeNumber": 15000000000,
 	"exponent": 162e3,
 	"exponentString": "162e+5",
+	"decimalFraction": 0.00000000001,
+	"exponentFraction": 1e-7,
 	"numberString": "123e+10",
 	"object": {
 		"name": "Oscar"
@@ -33,7 +39,9 @@ Output:
 	[
 		"array",
 		"boolean",
+		"decimalFraction",
 		"exponent",
+		"exponentFraction",
 		"exponentString",
 		"float",
 		"integer",
@@ -47,6 +55,7 @@ Output:
 		"string"
 	],
 	// Values, in corresponding order
+	// Send only this in your server responses
 	[
 		[
 			1,
@@ -55,8 +64,10 @@ Output:
 		],
 		// Boolean converted to integer
 		0,
+		1e-11,
 		// JSON.parse() automatically converts 162e3 to integer :(
 		162000,
+		1e-7,
 		"162e+5",
 		10.5,
 		1042,
@@ -71,7 +82,7 @@ Output:
 ]
 ```
 
-And back:
+And back. This sample has the values minified post decoding - see [lib/minify.js](./lib/minify.js)
 
 ```json
 {
@@ -81,12 +92,14 @@ And back:
 		3
 	],
 	"boolean": 0,
+	"decimalFraction": 1e-11,
 	"exponent": 162000,
-	"exponentString": "162e+5",
+	"exponentFraction": 1e-7,
+	"exponentString": 162e5,
 	"float": 10.5,
 	"integer": 1042,
-	"largeNumber": "1.5e+10",
-	"numberString": "123e+10",
+	"largeNumber": 1.5e10,
+	"numberString": 123e10,
 	"object": {
 		"name": "Oscar"
 	},
@@ -94,4 +107,4 @@ And back:
 }
 ```
 
-Also check out [sampler.js](./sampler.js) for more examples.
+Check out [sampler.js](./sampler.js) for more examples.
