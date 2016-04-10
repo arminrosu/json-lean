@@ -3,7 +3,7 @@ var json = fs.readFileSync('samples/example.json', 'utf8');
 // Facebook.com/Coca-Cola graph api response
 // var json = fs.readFileSync('samples/facebook.coca-cola.json', 'utf8');
 var obj    = JSON.parse(json);
-var lean   = require('./app.js');
+var lean   = require('./index.js');
 var minify = require('./lib/minify.js');
 
 var encoded = lean.encode(obj);
