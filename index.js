@@ -105,7 +105,7 @@ module.exports = (function() {
 
 	/**
 	 * Check if last key in tree
-	 * @param  {string|Object} key [description]
+	 * @param  {string|Object} value [description]
 	 * @return {Boolean}
 	 */
 	var isLeaf = function(value) {
