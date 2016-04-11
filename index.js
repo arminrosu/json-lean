@@ -10,7 +10,7 @@ module.exports = (function() {
 		var keys   = [];
 		var values = [];
 		var value;
-		var minifyOn = minify || true;
+		var minifyOn = (minify === undefined) ? true : minify;
 
 		var objKeys = Object.keys(obj).sort();
 
