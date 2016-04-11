@@ -27,7 +27,7 @@ module.exports = (function() {
 				}
 
 			} else {
-				var encoded = encode(value);
+				var encoded = encode(value, minifyOn);
 				var k       = {};
 
 				k[key] = encoded[0];
