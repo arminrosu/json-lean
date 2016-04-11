@@ -17,7 +17,7 @@ module.exports = (function() {
 		objKeys.forEach(function(key) {
 			value = obj[key];
 
-			if (isEdge(value)) {
+			if (isLeaf(value)) {
 				keys.push(key);
 
 				if (minifyOn) {
@@ -54,7 +54,7 @@ module.exports = (function() {
 		keys.forEach(function(key, index) {
 			var value = values[index];
 
-			if (isEdge(key)) {
+			if (isLeaf(key)) {
 				result[key] = value;
 			} else if (typeof key === 'object') {
 				var keyName = Object.keys(key)[0];
@@ -108,11 +108,11 @@ module.exports = (function() {
 	 * @param  {string|Object} key [description]
 	 * @return {Boolean}
 	 */
-	var isEdge = function(key) {
+	var isLeaf = function(value) {
 		// Object
-		if (typeof key === 'object' &&
-			!Array.isArray(key) &&
-			key !== null
+		if (typeof value === 'object' &&
+			!Array.isArray(value) &&
+			value !== null
 		) {
 			return false;
 		}
