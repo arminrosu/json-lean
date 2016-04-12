@@ -108,3 +108,7 @@ And back. This sample has the values minified post decoding - see [lib/minify.js
 ```
 
 Check out [sampler.js](./sampler.js) for more examples.
+
+## Ignored files
+
+* `output` - used by the `sampler.js` script, create on first run
