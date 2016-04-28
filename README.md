@@ -6,24 +6,18 @@ It is useful if you make multiple requests and the response object has the same 
 
 ## Example
 
-Input:
+Check out [sampler.js](./sampler.js) for more examples.
+
+### Input:
 
 ```json
 {
 	"array": [
 		1,
-		2,
-		3
+		2
 	],
-	"boolean": false,
 	"integer": 1042,
-	"float": 10.5,
-	"largeNumber": 15000000000,
-	"exponent": 162e3,
-	"exponentString": "162e+5",
-	"decimalFraction": 0.00000000001,
-	"exponentFraction": 1e-7,
-	"numberString": "123e+10",
+	"boolean": false,
 	"object": {
 		"name": "Oscar"
 	},
@@ -31,75 +25,59 @@ Input:
 }
 ```
 
-Output:
+### Output - Keys
 
-```js
+This should be stored with the client.
+
+Once the first (unencoded) request is made, you should make requests to the encoded endpoint.
+
+Keys are sorted.
+
+```json
 [
-	// Keys, sorted
-	[
-		"array",
-		"boolean",
-		"decimalFraction",
-		"exponent",
-		"exponentFraction",
-		"exponentString",
-		"float",
-		"integer",
-		"largeNumber",
-		"numberString",
-		{
-			"object": [
-				"name"
-			]
-		},
-		"string"
-	],
-	// Values, in corresponding order
-	// Send only this in your server responses
-	[
-		[
-			1,
-			2,
-			3
-		],
-		// Boolean converted to integer
-		0,
-		1e-11,
-		// JSON.parse() automatically converts 162e3 to integer :(
-		162000,
-		1e-7,
-		"162e+5",
-		10.5,
-		1042,
-		// largeNumber is shorter in Exponential Notation
-		"1.5e+10",
-		"123e+10",
-		[
-			"Oscar"
-		],
-		"I love deadlines. I like the whooshing sound they make as they fly by."
-	]
+	"array",
+	"boolean",
+	"integer",
+	{
+		"object": [
+			"name"
+		]
+	},
+	"string"
 ]
 ```
 
-And back. This sample has the values minified post decoding - see [lib/minify.js](./lib/minify.js)
+### Output - Values
+
+This example is **34% smaller** than the original JSON with keys.
+
+```json
+[
+	[
+		1,
+		2
+	],
+	false,
+	1042,
+	[
+		"Oscar"
+	],
+	"I love deadlines. I like the whooshing sound they make as they fly by."
+]
+```
+
+### Recombine
+
+Decoding is transparent. You can add it as a step before your actual data parsing.
 
 ```json
 {
 	"array": [
 		1,
-		2,
-		3
+		2
 	],
-	"boolean": 0,
-	"decimalFraction": 1e-11,
-	"exponent": 162000,
-	"exponentFraction": 1e-7,
-	"exponentString": 162e5,
-	"float": 10.5,
+	"boolean": false,
 	"integer": 1042,
-	"largeNumber": 1.5e10,
-	"numberString": 123e10,
 	"object": {
 		"name": "Oscar"
 	},
@@ -107,4 +85,6 @@ And back. This sample has the values minified post decoding - see [lib/minify.js
 }
 ```
 
-Check out [sampler.js](./sampler.js) for more examples.
+## Even less?
+
+Check out [json-slim](https://github.com/arminrosu/json-slim) for minify the output JSON even further.
