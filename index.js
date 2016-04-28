@@ -3,15 +3,12 @@ module.exports = (function() {
 	/**
 	 * Extract key and value trees.
 	 * @param  {Object} obj - Object to leanify
-	 * @param  {Boolean} [minify=true] - Flag to minify values
 	 * @return {Array[]} - Array[0] will be the keys, Array[1] the values
 	 */
-	var encode = function(obj, minify) {
+	var encode = function(obj) {
 		var keys   = [];
 		var values = [];
 		var value;
-		var minifyOn = (minify === undefined) ? true : minify;
-
 		var objKeys = Object.keys(obj).sort();
 
 		objKeys.forEach(function(key) {
@@ -20,14 +17,10 @@ module.exports = (function() {
 			if (isLeaf(value)) {
 				keys.push(key);
 
-				if (minifyOn) {
-					values.push(minifyValue(value));
-				} else {
-					values.push(value);
-				}
+				values.push(value);
 
 			} else {
-				var encoded = encode(value, minifyOn);
+				var encoded = encode(value);
 				var k       = {};
 
 				k[key] = encoded[0];
@@ -68,42 +61,6 @@ module.exports = (function() {
 	};
 
 	/**
-	 * Minify certain value types.
-	 * @param  {Boolean} value
-	 * @return {Integer}
-	 */
-	var minifyValue = function(value) {
-		// Boolean to Integer
-		if (typeof value === 'boolean') {
-			value = value | 0;
-
-		// NumberString to Number
-		} else if (
-			typeof value === 'string' &&
-			isNumber(value)
-		) {
-			var number = parseFloat(value);
-
-			// Might already be in exponential notation and shorter
-			// @NOTE We might misidentify exp. notation.
-			if (value.length > number.toString().length - 2) {
-				value = number;
-			}
-		}
-
-		// Number
-		if (typeof value === 'number') {
-			var exp = value.toExponential();
-
-			if (value.toString().length > exp.length + 2) {
-				value = exp;
-			}
-		}
-
-		return value;
-	};
-
-	/**
 	 * Check if last key in tree
 	 * @param  {string|Object} value [description]
 	 * @return {Boolean}
@@ -123,16 +80,6 @@ module.exports = (function() {
 		// Number
 		// String
 		return true;
-	};
-
-	/**
-	 * Check if a string contains a number.
-	 * @see {@link http://stackoverflow.com/a/35759874/584441|Stackoverflow source}
-	 * @param  {string} string
-	 * @return {Boolean}
-	 */
-	var isNumber = function(string) {
-		return !isNaN(string) && !isNaN(parseFloat(string));
 	};
 
 	return {
