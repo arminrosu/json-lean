@@ -7,6 +7,12 @@ Extract/Merge key and value trees from a JSON.
 
 It reduces the size of your requests, if the client already has the key tree. Especially useful for repeating requests, as you can send the data tree alone (on average 1/3 smaller than a complete JSON).
 
+## Installation
+
+```sh
+npm install json-lean
+```
+
 ## Example
 
 ### Input:
