@@ -1,8 +1,11 @@
 # JSON-Lean
 
+[![Build Status](https://travis-ci.org/arminrosu/json-lean.svg?branch=master)](https://travis-ci.org/arminrosu/json-lean)
+[![Dependencies](https://david-dm.org/arminrosu/json-lean.svg)](https://david-dm.org/arminrosu/json-lean)
+
 Extract/Merge key and value trees from a JSON.
 
-It is useful if you make multiple requests and the response object has the same structure. You can respond only with the data.
+It reduces the size of your requests, if the client already has the key tree. Especially useful for repeating requests, as you can send the data tree alone (on average 1/3 smaller than a complete JSON).
 
 ## Example
 
@@ -87,4 +90,4 @@ Decoding is transparent. You can add it as a step before your actual data parsin
 
 ## Even less?
 
-Check out [json-slim](https://github.com/arminrosu/json-slim) for minify the output JSON even further.
+Check out [json-slim](https://github.com/arminrosu/json-slim) for a minifier better than _JSON.stringify()_.
