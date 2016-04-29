@@ -1,11 +1,7 @@
 {
   "name": "json-lean",
   "version": "0.1.0",
-  "description": "Extract/Merge key and value trees from a JSON.",
-  "main": "index.js",
-  "scripts": {
-    "test": "node test.js"
-  },
+  "description": "Extract and Merge key and value trees from a JSON.",
   "keywords": [
     "json",
     "keys",
@@ -16,6 +12,26 @@
     "split",
     "combine"
   ],
+  "homepage": "https://github.com/arminrosu/json-lean",
+  "bugs": {
+    "url": "https://github.com/arminrosu/json-lean/issues"
+  },
+  "license": "MIT",
   "author": "Armin Roșu <hello@armin.ro> (http://armin.ro)",
-  "license": "MIT"
+  "files": [
+    "index.js",
+    "test.js"
+  ],
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arminrosu/json-lean.git"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "engines": {
+    "node": ">=5",
+    "npm": ">=3"
+  }
 }
