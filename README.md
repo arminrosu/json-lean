@@ -15,21 +15,20 @@ npm install json-lean
 
 ## Example
 
-### Input:
-
-```json
-{
-	"array": [
+```js
+var lean    = require('json-lean');
+var encoded = lean.encode({
+	'array': [
 		1,
 		2
 	],
-	"integer": 1042,
-	"boolean": false,
-	"object": {
-		"name": "Oscar"
+	'integer': 1042,
+	'boolean': false,
+	'object':  {
+		'name': 'Oscar'
 	},
-	"string": "I love deadlines. I like the whooshing sound they make as they fly by."
-}
+	'string': 'I love deadlines. I like the whooshing sound they make as they fly by.'
+});
 ```
 
 ### Output - Keys
@@ -41,6 +40,7 @@ Once the first (unencoded) request is made, you should make requests to the enco
 Keys are sorted.
 
 ```json
+console.log(encoded[0]) ===
 [
 	"array",
 	"boolean",
@@ -58,7 +58,8 @@ Keys are sorted.
 
 This example is **34% smaller** than the original JSON with keys.
 
-```json
+```js
+console.log(encoded[1]) ===
 [
 	[
 		1,
@@ -77,7 +78,8 @@ This example is **34% smaller** than the original JSON with keys.
 
 Decoding is transparent. You can add it as a step before your actual data parsing.
 
-```json
+```js
+lean.decode(encoded) ===
 {
 	"array": [
 		1,
