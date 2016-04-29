@@ -9,8 +9,6 @@ It reduces the size of your requests, if the client already has the key tree. Es
 
 ## Example
 
-Check out [sampler.js](./sampler.js) for more examples.
-
 ### Input:
 
 ```json
