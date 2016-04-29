@@ -1,11 +1,43 @@
 module.exports = (function() {
 
 	/**
-	 * Extract key and value trees.
-	 * @param  {Object} obj - Object to leanify
+	 * Encode the JSON
+	 * @param  {Array|Object} json
 	 * @return {Array[]} - Array[0] will be the keys, Array[1] the values
 	 */
-	var encode = function(obj) {
+	var encode = function(json) {
+		if (Array.isArray(json)) {
+			return encodeArray(json);
+		}
+
+		return encodeObject(json);
+	};
+
+	/**
+	 * Extract key and value trees from Array.
+	 * @param  {Array} array
+	 * @return {Array[]}
+	 */
+	var encodeArray = function(array) {
+		var keys   = [];
+		var values = [];
+
+		array.forEach(function(json) {
+			var encoded = encode(json);
+
+			keys.push(encoded[0]);
+			values.push(encoded[1]);
+		});
+
+		return [keys, values];
+	};
+
+	/**
+	 * Extract key and value trees from Object.
+	 * @param  {Object} obj - Object to leanify
+	 * @return {Array[]}
+	 */
+	var encodeObject = function(obj) {
 		var keys   = [];
 		var values = [];
 		var value;
@@ -34,12 +66,44 @@ module.exports = (function() {
 	};
 
 	/**
+	 * Merge key&value arrays
+	 * @param  {Array} array[0] - Array of keys
+	 * @param  {Array} array[1] - Array of values
+	 * @return {Object|Array}
+	 */
+	var decode = function(array) {
+		if (Array.isArray(array[0][0])) {
+			return decodeArray(array);
+		}
+
+		return decodeObject(array);
+	};
+
+	/**
+	 * Merge key&value arrays back to array.
+	 * @param  {Array} array[0] - Array of keys
+	 * @param  {Array} array[1] - Array of values
+	 * @return {Array}
+	 */
+	var decodeArray = function(array) {
+		var keys    = array[0];
+		var values  = array[1];
+		var results = [];
+
+		keys.forEach(function(key, index) {
+			results[index] = decode([keys[index], values[index]]);
+		});
+
+		return results;
+	};
+
+	/**
 	 * Merge key&value arrays back to object.
 	 * @param  {Array} array[0] - Array of keys
 	 * @param  {Array} array[1] - Array of values
 	 * @return {Object}
 	 */
-	var decode = function(array) {
+	var decodeObject = function(array) {
 		var keys   = array[0];
 		var values = array[1];
 		var result = {};

@@ -1,5 +1,7 @@
-var assert       = require('assert');
-var lean         = require('./index.js');
+var assert = require('assert');
+var lean   = require('./index.js');
+
+// JSON Object
 var sampleObject = {
 	array: [
 		1,
@@ -12,34 +14,22 @@ var sampleObject = {
 	},
 	string: 'I love deadlines. I like the whooshing sound they make as they fly by.'
 };
-
 var encodedObject = lean.encode(sampleObject);
 var decodedObject = lean.decode(encodedObject);
 
-// Travis doesn't display the entire output, so we print it here
-console.log('=== JSON-Lean ===');
-console.log('Keys: ');
-console.log(encodedObject[0]);
-console.log('Values: ');
-console.log(encodedObject[1]);
+// JSON Array
+var sampleArray  = [sampleObject, sampleObject];
+var encodedArray = lean.encode(sampleArray);
+var decodedArray = lean.decode(encodedArray);
 
 // Test
 process.on('exit', function() {
-	// ~~~~~~~~~~
-	// OBJECT
-	// ~~~~~~~~~~
-
-	// Keys have been successfully extracted
-	assert.deepEqual(encodedObject[0], ['array', 'boolean', 'integer', {
+	var expectedKeys = ['array', 'boolean', 'integer', {
 		object: ['name']
-	}, 'string']);
-
-	// Values have been successfully extracted
-	assert.deepEqual(encodedObject[1], [[1, 2], false, 1042, ['Oscar'], 'I love deadlines. I like the whooshing sound they make as they fly by.']);
-
-	// Decode is same as source
+	}, 'string'];
+	var expectedValues = [[1, 2], false, 1042, ['Oscar'], 'I love deadlines. I like the whooshing sound they make as they fly by.'];
 	// @NOTE Keys are in alphabetic order
-	assert.deepEqual(decodedObject, {
+	var expectedObject = {
 		array: [
 			1,
 			2
@@ -50,9 +40,33 @@ process.on('exit', function() {
 			name: 'Oscar'
 		},
 		string: 'I love deadlines. I like the whooshing sound they make as they fly by.'
-	});
+	};
 
+	// ~~~~~~~~~~
+	// OBJECT
+	// ~~~~~~~~~~
 
+	// Keys have been successfully extracted
+	assert.deepEqual(encodedObject[0], expectedKeys, 'Object: Keys don\'t match');
+
+	// Values have been successfully extracted
+	assert.deepEqual(encodedObject[1], expectedValues, 'Object: Values don\'t match');
+
+	// Decode is same as source
+	assert.deepEqual(decodedObject, expectedObject, 'Object: Decoded objects don\'t  match');
+
+	// ~~~~~~~~~~
+	// ARRAY
+	// ~~~~~~~~~~
+
+	// Keys have been successfully extracted
+	assert.deepEqual(encodedArray[0], [expectedKeys, expectedKeys], 'Array: Keys don\'t match');
+
+	// Values have been successfully extracted
+	assert.deepEqual(encodedArray[1], [expectedValues, expectedValues], 'Array: Values don\'t match');
+
+	// Decode is same as source
+	assert.deepEqual(decodedArray, [expectedObject, expectedObject], 'Array: Decoded arrays don\'t match');
 
 	process.reallyExit(0);
 });
